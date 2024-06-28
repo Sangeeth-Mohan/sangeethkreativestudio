@@ -1,8 +1,8 @@
 import {react} from 'react';
-const ProjectsComponent = () => {
+const Projects = () => {
     return(
         <div>This is ProjectsComponent section</div>
     )
 }
 
-export default ProjectsComponent;
+export default Projects;
