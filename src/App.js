@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import './App.css';
+import { SangeethPortfolioThemeProvider } from './context/sangeethPortfolioContext.js';
+import LandingPageComponent from './components/landingPageComponent/LandingPageComponent.js';
+import ProjectsComponent from './components/projects/ProjectsComponent.js';
+import SkillsComponent from './components/skills/SkillsComponent.js';
+import HeaderComponent from './components/header/HeaderComponent.js';
+import FooterComponent from './components/footer/FooterComponent.js';
+import ContactFormComponent from './components/contact/ContactFormComponent.js';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <SangeethPortfolioThemeProvider>
+      <BrowserRouter>
+        <div className='App'>
+          <HeaderComponent/>
+          <Routes>
+            <Route path='/' element={<LandingPageComponent/>}/>
+            <Route path='projects' element={<ProjectsComponent/>}/>
+            <Route path='skills' element={<SkillsComponent/>}/>
+            <Route path='contact' element={<ContactFormComponent/>}/>
+          </Routes>
+          <FooterComponent/>
+        </div>
+      </BrowserRouter>
+    </SangeethPortfolioThemeProvider>
   );
 }
 
