@@ -1,15 +1,24 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
-import { MotionDiv } from '../../utils/motion'; 
+import { Box, IconButton } from '@mui/material';
+import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
-const FooterComponent = () => {
+const Footer = () => {
   return (
-    <MotionDiv initial={{ opacity: 0, y: 50 }}>
-      <Box sx={{ bgcolor: 'primary.main', color: 'white', p: 2, textAlign: 'center' }}>
-        <Typography variant="body2">&copy; {new Date().getFullYear()} Sangeeth Kreative Studio. All rights reserved.</Typography>
-      </Box>
-    </MotionDiv>
+    <Box component="footer" py={3} textAlign="center">
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.5 }}>
+        <IconButton href="https://facebook.com" target="_blank" color="primary">
+          <FaFacebook />
+        </IconButton>
+        <IconButton href="https://instagram.com" target="_blank" color="primary">
+          <FaInstagram />
+        </IconButton>
+        <IconButton href="https://linkedin.com" target="_blank" color="primary">
+          <FaLinkedin />
+        </IconButton>
+      </motion.div>
+    </Box>
   );
 };
 
-export default FooterComponent;
+export default Footer;
