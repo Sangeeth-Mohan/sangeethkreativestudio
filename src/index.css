@@ -3,13 +3,19 @@ html, body, #root {
   margin: 0;
   padding: 0;
   width: 100%;
+  background: inherit;
 }
 
 body {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   min-height: 100vh;
   background: inherit;
+}
+
+.main-container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto; 
 }
