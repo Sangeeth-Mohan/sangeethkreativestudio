@@ -16,6 +16,15 @@ const ThemeContextProvider = ({ children }) => {
   const theme = useMemo(
     () =>
     createTheme({
+      typography: {
+        fontFamily: 'Merienda, sans-serif',
+        body1: {
+          lineHeight: 0,
+        },
+        body2: {
+          lineHeight: 0,
+        },
+      },
       palette: {
         mode,
         primary: {

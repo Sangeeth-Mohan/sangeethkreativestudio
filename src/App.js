@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import HeaderComponent from './components/Header/HeaderComponent';
 import WelcomePageComponent from './components/WelcomePage/WelcomePageComponent';
-import Home from './pages/Home/Home';
+import Contact from './pages/Contact/Contact';
 import ThemeContextProvider from './context/ThemeContext';
 import { Box } from '@mui/material';
 import './index.css';
@@ -12,16 +12,9 @@ function App() {
   return (
     <ThemeContextProvider>
       <Router>
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            minHeight: '100vh',
-            background: 'inherit',
-          }}
-        >
-        <HeaderComponent />
-        <Box
+        <Box className="app-container">
+          <HeaderComponent />
+          <Box
             component="main"
             className="main-container"
             sx={{
@@ -31,17 +24,15 @@ function App() {
               alignItems: 'center',
               justifyContent: 'center',
             }}
-        >
-          <Routes>
-            <Route path="/" element={<>
-              <WelcomePageComponent/>
-            </>} />
-          </Routes>
+          >
+            <Routes>
+              <Route path="/" element={<WelcomePageComponent />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
           </Box>
         </Box>
       </Router>
     </ThemeContextProvider>
-    
   );
 }
 

@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Typography, Box, Button, IconButton } from '@mui/material';
+import { Box, Typography, Button, IconButton, useMediaQuery } from '@mui/material';
 import { motion } from 'framer-motion';
-import { FaFileDownload, FaEnvelope, FaFacebook, FaInstagram, FaLinkedin, FaArrowDown } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { FaFileDownload, FaEnvelope, FaFacebook, FaInstagram, FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
 import Loader from '../Loader/LoaderComponent';
-import welcomeImage from '../../assets/images/SangeethPic1.PNG';
-import welcomeBackgroundImage from '../../assets/images/LandingPageBackground.jpg';
+import welcomeImage from '../../assets/images/SangeethPic1.png';
 import { useThemeContext } from '../../context/ThemeContext';
+import useScreenSize from '../../hooks/useScreenSize';
 import './WelcomePage.css';
-import { Parallax } from 'react-parallax';
 
 const WelcomePageComponent = () => {
   const [loading, setLoading] = useState(true);
   const { mode } = useThemeContext();
+  const { width } = useScreenSize();
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false, 2000)); // Simulate loading delay
+    const timer = setTimeout(() => setLoading(false), 2000); // Simulate loading delay
     return () => clearTimeout(timer);
   }, []);
 
@@ -22,75 +23,84 @@ const WelcomePageComponent = () => {
     return <Loader />;
   }
 
+  const getFontSize = () => {
+    if (width < 600) return 'h4';
+    if (width < 960) return 'h3';
+    return 'h2';
+  };
+
+  const handleDownloadCV = () => {
+    window.open('/SangeethKumarMohanResume.pdf', '_blank');
+  };
+
   return (
-      <Box
-        component={motion.div}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        className="welcome-container"
-        data-theme={mode}
-      >
-        <Box className="welcome-text-container" >
-          <Typography variant="h4" component="h1" mt={2} class="animate-charcter">
-            I'M SANGEETH K MOHAN
-          </Typography>
-          <Typography variant="h6" component="p" mt={1}>
-            Welcome to my creative space
-          </Typography>
-          <Box display="flex" justifyContent="center" mt={2}>
-            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-              <Button variant="contained" color="primary" startIcon={<FaFileDownload />} sx={{ mr: 2 }}>
-                Download CV
-              </Button>
-            </motion.div>
-            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} mt={2}>
-              <Button variant="contained" color="primary" startIcon={<FaEnvelope />}>
-                Contact Me
-              </Button>
-            </motion.div>
-          </Box>
-          <Box mt={2} py={3} className="social-icons">
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.5 }}>
-              <IconButton href="https://facebook.com" target="_blank" color="default">
-                <FaFacebook />
-              </IconButton>
-              <IconButton href="https://instagram.com" target="_blank" color="default">
+    <Box
+      component={motion.div}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      className="welcome-container"
+      data-theme={mode}
+    >
+      <Box className="welcome-text-container">
+        <Typography variant={getFontSize()} component="h1" className="name-class">
+          SANGEETH K MOHAN
+        </Typography>
+        <Typography variant="h6" component="p" className='intro-title'>
+          Sr. Lead Front-End Engineer
+        </Typography>
+        <Typography variant="body1" component="p" className='intro-desc'>
+          Sangeeth has more than 12 years of experience in developing web applications. Renowned for delivering innovative front-end solutions across various industries, including telecommunications, healthcare, energy, and financial services, by leading and collaborating with cross-functional teams.
+        </Typography>
+        <Box display="flex" justifyContent="center" mt={2}>
+          <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+          <Button
+              variant="contained"
+              color="primary"
+              startIcon={<FaFileDownload />}
+              sx={{ mr: 2 }}
+              onClick={handleDownloadCV}
+            >
+              Download CV
+            </Button>
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} mt={2}>
+            <Button variant="contained" color="primary" startIcon={<FaEnvelope />} component={Link} to="/contact">
+             Contact Me
+            </Button>
+          </motion.div>
+        </Box>
+        <Box mt={2} py={3} className="social-icons">
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.5 }}>
+            <IconButton href="https://www.linkedin.com/in/sangeethkumarmohan/" target="_blank" className="social-icon">
+              <FaLinkedin />
+            </IconButton>
+            <IconButton href="https://github.com/Sangeeth-Mohan/sangeethkreativestudio" target="_blank" className="social-icon">
+                <FaGithub />
+            </IconButton>
+            <IconButton href="https://www.instagram.com/sangee1199" target="_blank" className="social-icon">
                 <FaInstagram />
-              </IconButton>
-              <IconButton href="https://linkedin.com" target="_blank" color="default">
-                <FaLinkedin />
-              </IconButton>
-            </motion.div>
-          </Box>
+            </IconButton>
+            <IconButton href="https://twitter.com" target="_blank" className="social-icon">
+                <FaTwitter />
+            </IconButton>
+            <IconButton href="https://www.facebook.com/sangeeth.kumar.524934?mibextid=LQQJ4d" target="_blank" className="social-icon">
+                <FaFacebook />
+            </IconButton>
+          </motion.div>
         </Box>
-        {/* <Box className="welcome-divider">
-          <motion.div
-            initial={{ height: 0 }}
-            animate={{ height: '100%' }}
-            transition={{ duration: 1 }}
-            className="divider-line"
-          />
-        </Box> */}
-        <Box className="welcome-image-container">
-          <motion.img
-            src={welcomeImage}
-            alt="Sangeeth K Mohan"
-            className="welcome-image"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.5 }}
-          />
-        </Box>
-        {/* <motion.div
-          initial={{ y: 0 }}
-          animate={{ y: 20 }}
-          transition={{ repeat: Infinity, repeatType: "reverse", duration: 1 }}
-          className="scroll-indicator"
-        >
-          <FaArrowDown />
-        </motion.div> */}
       </Box>
+      <Box className="welcome-image-container">
+        <motion.img
+          src={welcomeImage}
+          alt="Sangeeth K Mohan"
+          className="welcome-image"
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.5 }}
+        />
+      </Box>
+    </Box>
   );
 };
 
