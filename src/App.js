@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
-import HeaderComponent from "./components/header/HeaderComponent";
+import HeaderComponent from "./components/Header/HeaderComponent";
 import WelcomePageComponent from "./components/WelcomePage/WelcomePageComponent";
 import Contact from "./pages/Contact/Contact";
 import ThemeContextProvider from "./context/ThemeContext";
