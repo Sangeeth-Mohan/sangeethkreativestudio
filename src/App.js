@@ -7,6 +7,7 @@ import Contact from "./pages/Contact/Contact";
 import ThemeContextProvider from "./context/ThemeContext";
 import { Box } from "@mui/material";
 import "./index.css";
+import ProjectTimeline from "./components/Projects/ProjectTimeline";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Routes>
               <Route path="/" element={<WelcomePageComponent />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/workExperience" element={<ProjectTimeline />} />
             </Routes>
           </Box>
         </Box>
