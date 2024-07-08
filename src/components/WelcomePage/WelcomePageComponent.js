@@ -44,7 +44,7 @@ const WelcomePageComponent = () => {
   };
 
   const handleDownloadCV = () => {
-    window.open("/SangeethKumarMohanResume.pdf", "_blank");
+    window.open("/SangeethKumarMohanRes.pdf", "_blank");
   };
 
   return (
