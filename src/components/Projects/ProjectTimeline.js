@@ -107,7 +107,7 @@ const ProjectTimeline = () => {
                       {project.duration}
                     </Typography>
                     <Box mt={2} className="timeline-box">
-                      <ul style={{ paddingLeft: "20px" }}>
+                      <ul style={{ paddingLeft: "20px"}}>
                         {project.description
                           .slice(
                             0,
@@ -137,12 +137,12 @@ const ProjectTimeline = () => {
                             </li>
                           ))}
                       </ul>
-                      <IconButton
-                        size="small"
-                        onClick={() => handleToggleExpand(index)}
-                      >
-                        {expanded[index] ? <ExpandLess /> : <ExpandMore />}
-                      </IconButton>
+                        <IconButton
+                          size="small"
+                          onClick={() => handleToggleExpand(index)}
+                        >
+                          {expanded[index] ? <ExpandLess /> : <ExpandMore />}
+                        </IconButton>
                     </Box>
                   </CardContent>
                 </Card>

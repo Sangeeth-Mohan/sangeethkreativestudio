@@ -44,7 +44,7 @@ const WelcomePageComponent = () => {
   };
 
   const handleDownloadCV = () => {
-    window.open("/SangeethKumarMohanRes.pdf", "_blank");
+    window.open("/SangeethKumarMohan.pdf", "_blank");
   };
 
   return (
@@ -66,13 +66,6 @@ const WelcomePageComponent = () => {
         </Typography>
         <Typography variant="h6" component="p" className="intro-title">
           Sr. Lead Front-End Engineer
-        </Typography>
-        <Typography variant="body1" component="p" className="intro-desc">
-          Sangeeth has more than 12 years of experience in developing web
-          applications. Renowned for delivering innovative front-end solutions
-          across various industries, including telecommunications, healthcare,
-          energy, and financial services, by leading and collaborating with
-          cross-functional teams.
         </Typography>
         <Box display="flex" justifyContent="center" mt={2}>
           <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>

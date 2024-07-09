@@ -43,13 +43,11 @@
 .intro-title{
   text-align: center;
   color: lightcoral;
-  line-height: 2.5 !important;
 }
 
 [data-theme="dark"] .intro-title{
   text-align: center;
   color: white;
-  line-height: 2.5 !important;
 }
 
 .intro-desc {
@@ -140,12 +138,10 @@
 
   .intro-title{
     text-align: left;
-    line-height: 3.5 !important;
   }
   
   [data-theme="dark"] .intro-title{
     text-align: left;
-    line-height: 3.5 !important;
   }
   
   .intro-desc {
@@ -174,12 +170,10 @@
 
   .intro-title{
     text-align: left;
-    line-height: 3.5 !important;
   }
   
   [data-theme="dark"] .intro-title{
     text-align: left;
-    line-height: 3.5 !important;
   }
   
   .intro-desc {
